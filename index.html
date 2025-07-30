@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+  <title>Hangman</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    :root {
+      --bg-color: #fff; 
+      --text-color: #333; 
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hangman</h1>
+    
+    <div id="quote"></div>
+    
+    <div class="controls"> 
+      <select id="difficultySelect">
+        <option value="easy">Easy (≤6 letters)</option>
+        <option value="medium" selected>Medium (5-8 letters)</option>
+        <option value="hard">Hard (≥7 letters)</option>
+      </select>
+      
+      <select id="categorySelect">
+        <option value="random">Random Category</option>
+        <option value="animals">Animals</option>
+        <option value="food">Food</option>
+        <option value="countries">Countries</option>
+        <option value="technology">Technology</option>
+        <option value="nature">Nature</option>
+        <option value="sports">Sports</option>
+      </select>
+    </div>
+    
+    <div id="game-info"></div>
+    <div id="hangman-display"></div>
+    <div id="word-display"></div>
+    <div id="keyboard"></div>
+    <div id="definition"></div>
+    <div id="stats"></div>
+    <div id="message"></div>
+    
+    <div class="button-container">
+      <button id="resetBtn">🎮 New Game</button>
+      <button id="hintBtn">💡 Hint</button>
+      <button id="toggleStats">📊 Toggle Stats</button>
+      <button id="toggleThemeBtn">🌙 Toggle Theme</button>
+    </div>
+  </div>
+  
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
