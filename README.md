@@ -17,5 +17,5 @@ A modern, mobile-friendly version of the classic Hangman game — built using **
 
 ## Play link
 
-[Click here to play!](https://IssamA123.github.io/hangman-game/)  
+[Click here to play!]((https://issama123.github.io/hangman-game-CS601/))  
 
