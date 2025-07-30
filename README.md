@@ -1,9 +1,8 @@
-# Hangman Game 🎯
+# Hangman Game
 
 A modern, mobile-friendly version of the classic Hangman game — built using **HTML**, **CSS**, and **JavaScript (ES6 modules)**.
 
-## 🛠️ Technologies Used
-
+## Technologies Used
 - HTML5
 - CSS3 (Flexbox, Grid, Media Queries)
 - JavaScript (ES6+, modules, classes)
