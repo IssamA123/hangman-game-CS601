@@ -8,14 +8,14 @@ A modern, mobile-friendly version of the classic Hangman game — built using **
 - JavaScript (ES6+, modules, classes)
 - Google Fonts (Poppins)
 
-## 📱 How to Play
+## How to Play
 
 1. Start the game and guess letters by clicking on keys.
 2. You have a limited number of incorrect guesses.
 3. Use the **hint button** if you're stuck!
 4. Win or lose, feedback will appear with animations.
 
-## 🚀 Live Demo
+## Play link
 
 [Click here to play!](https://IssamA123.github.io/hangman-game/)  
 
