@@ -1,0 +1,336 @@
+/* === GLOBAL STYLES === */
+
+/* import poppins font from googleapis */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+/* border box sizing to all elements so padding and borders  dont affect width/height */
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  font-family: "Poppins", sans-serif; /* poppins throughout*/
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+  color: #fff; /* text */
+  margin: 0; 
+  padding: 1rem; /* remove default internal spacing */
+  min-height: 100vh;
+  text-align: center;
+}
+
+.container { /* limit width centered horizontally */
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem; /* 2.5x root elem */
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* shadow on title */
+}
+
+/* actual game */
+#word-display {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.15); 
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  min-height: 80px;
+  display: flex; /* centered inside box */
+  align-items: center;
+  justify-content: center;
+}
+
+#hangman-display {
+  font-family: "Courier New", monospace; /* the actual hangman drawing font */
+  font-size: 0.8rem;
+  line-height: 1.2;
+  white-space: pre;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game-info {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#definition,
+#stats,
+#quote { /* css for quote #LOOKANDFEEL */
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+#definition {
+  font-style: italic;
+  border-left: 4px solid #4ecdc4;
+}
+
+#stats {
+  text-align: left;
+  line-height: 1.6;
+}
+
+#message {
+  font-weight: 600;
+  font-size: 1.2rem;
+  min-height: 2.5rem; /* reserve veritcal space even when empty */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+#message.success { /* pseudo class status feedback */
+  background: #4ecdc4; /* teal = success red = error */
+}
+
+#message.error {
+  background: #ff6b6b;
+}
+
+/* game controls */
+.controls {
+  display: flex; /* horizontal layout dropdown menus */
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+  flex-wrap: wrap; /* wrapping for small screens */
+}
+
+.controls select {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-weight: 600;
+}
+
+/* game keyboard */
+#keyboard {
+  display: grid; /* css grid for keys layour */
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); 
+  /* autofill grid with men key size of 40px , adjusted based on screen size (fr) */
+  gap: 0.5rem;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  max-width: 500px;
+}
+
+.key {
+  padding: 1rem 0.5rem;
+  background: #6a5acd;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 50px;
+  transition: all 0.2s ease; /* key hover transitions/animation Woa! */
+}
+
+.key:hover {
+  background: #7b68ee; /* light purple when hover (psuedohover) VI feedback */
+}
+
+.key:disabled {
+  opacity: 0.6;
+  cursor: not-allowed; /* user cant click key */
+}
+
+.key.correct {
+  background: #4ecdc4 !important;
+}
+
+.key.incorrect {
+  background: #ff6b6b !important;
+}
+
+.key.hint {
+  background: #ffa726 !important;
+  animation: pulse 0.5s ease-in-out; /* flashy-type animation for hint attention */
+}
+
+@keyframes pulse { /* custom animation for keyframe pulse grow/shrink */ 
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* general buttons */
+button:not(.key) {
+  padding: 1rem 1.5rem;
+  background: #ff6b6b;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 0.5rem;
+  min-height: 50px;
+  transition: all 0.2s ease;
+}
+/* adjacent selector with negation button:not(.key) */
+
+button:not(.key):hover {
+  opacity: 0.9;
+  transform: translateY(-2px); /* button raises slightly when hovered */
+}
+/* :hover is nice for look and feel */
+#toggleStats {
+  background: #4ecdc4;
+}
+
+#toggleThemeBtn {
+  background: #ffa726;
+}
+
+#hintBtn {
+  background: #9c27b0;
+}
+/* ID selectors for specific button styling */
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+/* emojis for buttons */
+#stats::before {
+  content: "📊 "; 
+}
+#message.success::after {
+  content: " 🎉";
+}
+#message.error::after {
+  content: " 💀";
+}
+#quote::before {
+  content: "❝ ";
+  color: #4ecdc4;
+}
+#quote::after {
+  content: " ❞";
+  color: #4ecdc4;
+}
+
+.hidden {
+  display: none !important; /* Force-hide any element  for visiblity during logic work*/
+}
+
+/* media query mobile respnsive */
+@media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2rem; /* smaller heading for smaller screens */
+  }
+
+  #word-display {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    padding: 1rem;
+  }
+
+  #hangman-display {
+    font-size: 0.7rem;
+    min-height: 100px;
+  }
+
+  #keyboard {
+    grid-template-columns: repeat(6, 1fr); /* 6 columns on tablets */
+    gap: 0.4rem;
+    padding: 0.8rem;
+  }
+
+  .key {
+    padding: 0.8rem 0.3rem;
+    font-size: 0.9rem;
+    min-height: 45px;
+  }
+
+  button:not(.key) {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    min-height: 45px;
+  }
+
+  .button-container {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    align-items: center;
+  }
+
+  .button-container button {
+    width: 100%;
+    max-width: 200px;  /*limits size so it’s mobile friendly */
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .controls select {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {  /* for even smaller screens like phone */
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #word-display {
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+  }
+
+  #hangman-display {
+    font-size: 0.6rem;
+    min-height: 80px;
+  }
+
+  #keyboard {
+    grid-template-columns: repeat(5, 1fr); /* Fewer keys per row */
+    gap: 0.3rem;
+  }
+
+  .key {
+    font-size: 0.8rem;
+    min-height: 40px;
+  }
+}

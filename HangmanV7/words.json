@@ -1,0 +1,8 @@
+{
+  "animals": ["elephant", "giraffe", "penguin", "dolphin", "butterfly", "kangaroo", "octopus", "flamingo"],
+  "food": ["pizza", "hamburger", "chocolate", "sandwich", "spaghetti", "pancake", "avocado", "strawberry"],
+  "countries": ["australia", "germany", "brazil", "canada", "japan", "mexico", "france", "italy"],
+  "technology": ["computer", "internet", "software", "keyboard", "monitor", "smartphone", "tablet", "website"],
+  "nature": ["mountain", "rainbow", "thunder", "sunshine", "waterfall", "forest", "desert", "volcano"],
+  "sports": ["basketball", "football", "tennis", "swimming", "cycling", "baseball", "volleyball", "hockey"]
+}
